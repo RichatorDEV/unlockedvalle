@@ -1,4 +1,13 @@
-<script type="text/javascript">
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unlocked VALLE - Inicio</title>
+    <link rel="icon" href="https://files.catbox.moe/b2ad8y.png" type="image/png">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script type="text/javascript">
         var gk_isXlsx = false;
         var gk_xlsxFileLookup = {};
         var gk_fileData = {};
@@ -36,39 +45,6 @@
             }
         }
         return gk_fileData[filename] || "";
-        }
-        </script><!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unlocked VALLE - Inicio</title>
-    <link rel="icon" href="https://files.catbox.moe/b2ad8y.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-    <script type="text/javascript">
-        var gk_isXlsx = false;
-        var gk_xlsxFileLookup = {};
-        var gk_fileData = {};
-        function loadFileData(filename) {
-            if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
-                try {
-                    var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
-                    var firstSheetName = workbook.SheetNames[0];
-                    var worksheet = workbook.Sheets[firstSheetName];
-                    var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
-                    var filteredData = jsonData.filter(row =>
-                        row.some(cell => cell !== '' && cell !== null && cell !== undefined)
-                    );
-                    var csv = XLSX.utils.aoa_to_sheet(filteredData);
-                    csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
-                    return csv;
-                } catch (e) {
-                    console.error(e);
-                    return "";
-                }
-            }
-            return gk_fileData[filename] || "";
         }
     </script>
     <style>
@@ -477,13 +453,13 @@
 
     <aside class="sidebar" id="sidebar">
         <nav class="sidebar-nav">
-            <a href="index.html?fromSidebar=true">
+            <a href="index.html">
                 <svg viewBox="0 0 24 24">
                     <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
                 </svg>
                 Inicio
             </a>
-            <a href="enlaces.html?fromSidebar=true">
+            <a href="enlaces.html">
                 <svg viewBox="0 0 24 24">
                     <path d="M3.9 12c0-1.71 1.39-3.1 3.1-3.1h4V7H7c-2.76 0-5 2.24-5 5s2.24 5 5 5h4v-1.9H7c-1.71 0-3.1-1.39-3.1-3.1zM8 13h8v-2H8v2zm9-6h-4v1.9h4c1.71 0 3.1 1.39 3.1 3.1s-1.39 3.1-3.1 3.1h-4V17h4c2.76 0 5-2.24 5-5s-2.24-5-5-5z"/>
                 </svg>
@@ -501,7 +477,7 @@
                 </svg>
                 UV Call
             </a>
-            <a href="interstellar.html?fromSidebar=true">
+            <a href="interstellar.html">
                 <svg viewBox="0 0 24 24">
                     <path d="M12 .587l3.668 7.431 8.332 1.209-6.001 5.853 1.416 8.26L12 18.896l-7.415 3.904 1.416-8.26L0 9.227l8.332-1.209L12 .587z"/>
                 </svg>
@@ -577,20 +553,13 @@
             checkAuth();
         });
 
-        // Clear sessionStorage on page reload
-        window.onbeforeunload = () => {
-            sessionStorage.removeItem('isAuthenticated');
-        };
-
         function checkAuth() {
             const isAuthenticated = sessionStorage.getItem('isAuthenticated') === 'true';
-            const urlParams = new URLSearchParams(window.location.search);
-            const fromSidebar = urlParams.get('fromSidebar') === 'true';
             const passwordOverlay = document.getElementById('passwordOverlay');
             const mainContent = document.getElementById('mainContent');
             const sidebar = document.getElementById('sidebar');
 
-            if (isAuthenticated && fromSidebar) {
+            if (isAuthenticated) {
                 passwordOverlay.style.display = 'none';
                 mainContent.style.display = 'block';
                 sidebar.style.display = 'block';
