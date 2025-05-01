@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adiós, Unlocked VALLE</title>
+    <title>Error 404 - Unlocked VALLE</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #0d1219 0%, #1a202c 100%);
+            position: relative;
+            overflow-x: hidden;
         }
         .fade-in {
             animation: fadeIn 1s ease-in;
@@ -17,137 +20,69 @@
             0% { opacity: 0; }
             100% { opacity: 1; }
         }
+        .pulse-glow {
+            animation: pulseGlow 2s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(59, 130, 246, 0.5), 0 0 20px rgba(59, 130, 246, 0.3); }
+            50% { text-shadow: 0 0 20px rgba(59, 130, 246, 0.8), 0 0 30px rgba(59, 130, 246, 0.5); }
+        }
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .star {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            animation: twinkle 5s infinite;
+        }
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.2; }
+            50% { opacity: 0.8; }
+        }
     </style>
 </head>
 <body class="bg-gray-900 text-white">
+    <!-- Starry Background -->
+    <div class="stars" id="stars"></div>
+
     <!-- Header -->
-    <header class="bg-gradient-to-r from-blue-600 to-purple-600 py-6">
+    <header class="bg-gradient-to-r from-blue-600 to-purple-600 py-6 relative z-10">
         <div class="container mx-auto px-4 text-center">
-            <h1 class="text-4xl md:text-5xl font-bold fade-in">Adiós, Unlocked VALLE</h1>
+            <h1 class="text-4xl md:text-5xl font-bold fade-in">Unlocked VALLE</h1>
             <p class="mt-2 text-lg md:text-xl text-gray-200 fade-in">Una aventura corta pero inolvidable (Enero - Abril 2025)</p>
         </div>
     </header>
 
     <!-- Main Content -->
-    <main class="container mx-auto px-4 py-12">
-        <!-- About Section -->
-        <section class="mb-12 fade-in">
-            <h2 class="text-3xl font-semibold text-blue-400 mb-4">¿Qué fue Unlocked VALLE?</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
-                Unlocked VALLE nació en <strong>enero de 2025</strong> como una plataforma para unir clases a través de la diversión. 
-                Era un espacio donde estudiantes podían <strong>jugar juegos</strong>, <strong>chatear</strong> y hacer 
-                <strong>videollamadas</strong> entre aulas, rompiendo las barreras de las paredes del insti.
+    <main class="container mx-auto px-4 py-12 text-center min-h-[60vh] flex items-center justify-center relative z-10">
+        <section class="fade-in">
+            <h2 class="text-8xl md:text-9xl font-extrabold text-blue-400 mb-6 pulse-glow">404</h2>
+            <p class="text-2xl md:text-3xl text-gray-300 leading-relaxed mb-4">
+                Unlocked VALLE cerró sus puertas el <strong>30 de abril de 2025</strong>.
             </p>
-            <p class="text-lg text-gray-300 leading-relaxed mt-4">
-                Durante cuatro meses, fuimos el lugar donde las risas en las clases estaban garantizadas. 
-                Pero, como todas las buenas historias, la nuestra tuvo un final inesperado.
+            <p class="text-lg text-gray-400 leading-relaxed max-w-md mx-auto">
+                Te has perdido en el vacío digital. Nuestra plataforma ya no orbita aquí, 
+                pero su espíritu sigue brillando en algún lugar del universo.
             </p>
-        </section>
-
-        <!-- The Shutdown Story -->
-        <section class="mb-12 fade-in">
-            <h2 class="text-3xl font-semibold text-purple-400 mb-4">¿Por qué cerramos?</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
-                Todo iba bien hasta que... ¡nos pillaron! La jefa de estudios se enteró de nuestra plataforma y, 
-                aunque no éramos precisamente un secreto de estado, decidió que Unlocked VALLE no podía seguir. 
-                Según ella, la <strong>Xunta de Galicia</strong> iba a borrar nuestra web por no cumplir con el reglamento.
-            </p>
-            <p class="text-lg text-gray-300 leading-relaxed mt-4">
-                En lugar de esperar a que nos la borraran ellos, decidimos tomar el control. 
-                El <strong>30 de abril de 2025</strong>, con el corazón un poco roto pero la cabeza alta, 
-                <strong>borramos la web nosotros mismos</strong>. Fue nuestra forma de decir: 
-                "Si nos vamos, que sea a nuestra manera."
-            </p>
-        </section>
-
-        <!-- Farewell Message -->
-        <section class="mb-12 fade-in">
-            <h2 class="text-3xl font-semibold text-blue-400 mb-4">Gracias por todo</h2>
-            <p class="text-lg text-gray-300 leading-relaxed">
-                Aunque Unlocked VALLE ya no existe, los recuerdos de esos juegos épicos, 
-                las charlas entre clases y las videollamadas llenas de risas seguirán vivos. 
-                Gracias a todos los estudiantes que se unieron a esta aventura. 
-                Fuimos pequeños, pero molamos mucho.
-            </p>
-            <p class="text-lg text-gray-300 leading-relaxed mt-4">
-                ¿Quién sabe? Quizás algún día volvamos con algo aún más grande. 
-                Hasta entonces, ¡seguid jugando y aprendiendo!
-            </p>
-        </section>
-
-        <!-- Unfulfilled Projects -->
-        <section class="mb-12 fade-in">
-            <h2 class="text-3xl font-semibold text-purple-400 mb-4">Todos los proyectos que queríamos hacer</h2>
-            <p class="text-lg text-gray-300 leading-relaxed mb-6">
-                Teníamos grandes planes para expandir Unlocked VALLE con nuevas herramientas y experiencias. 
-                Aunque no llegamos a lanzarlos, aquí está lo que soñábamos crear:
-            </p>
-            <ul class="list-disc list-inside text-lg text-gray-300 space-y-4">
-                <li><strong>UV Music</strong>: Una plataforma para escuchar toda la música de cualquier artista gratis y sin anuncios.</li>
-                <li><strong>UV AI</strong>: Un asistente de inteligencia artificial para ayudar con tareas, resolver dudas, etc...</li>
-                <li><strong>UV Calculator</strong>: Una calculadora interactiva con funciones avanzadas, diseñada para hacer las mates más divertidas y visuales.</li>
-                <li><strong>UV Wallet</strong>: Un sistema de "moneda virtual" para recompensar logros en juegos y actividades, que los estudiantes podrían canjear por premios digitales o personalizaciones.</li>
-            </ul>
-            <p class="text-lg text-gray-300 leading-relaxed mt-6">
-                Aunque estos proyectos no vieron la luz, nos inspiran para seguir soñando a lo grande.
-            </p>
-        </section>
-
-        <!-- Timeline -->
-        <section class="mb-12 fade-in">
-            <h2 class="text-3xl font-semibold text-purple-400 mb-4">Nuestra breve historia</h2>
-            <div class="relative border-l-4 border-blue-500 pl-6">
-                <div class="mb-8">
-                    <span class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full"></span>
-                    <h3 class="text-xl font-semibold text-gray-100">Enero 2025</h3>
-                    <p class="text-gray-300">Nace Unlocked VALLE. Las primeras clases se conectan para jugar y charlar.</p>
-                </div>
-                <div class="mb-8">
-                    <span class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full"></span>
-                    <h3 class="text-xl font-semibold text-gray-100">Febrero - Marzo 2025</h3>
-                    <p class="text-gray-300">La plataforma crece: más juegos, videollamadas y risas entre aulas.</p>
-                </div>
-                <div>
-                    <span class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full"></span>
-                    <h3 class="text-xl font-semibold text-gray-100">Abril 2025</h3>
-                    <p class="text-gray-300">Nos pillan. Decidimos cerrar la web antes de que la Xunta lo haga por nosotros.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Final Message and Countdown -->
-        <section class="mb-12 fade-in text-center">
-            <p class="text-2xl font-semibold text-blue-400 mb-6 mx-auto">Esto no acaba aquí...</p>
-            <div id="countdown" class="flex justify-center space-x-4">
-                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
-                    <span id="days" class="block text-2xl font-bold text-blue-400">00</span>
-                    <span class="text-sm text-gray-400">Días</span>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
-                    <span id="hours" class="block text-2xl font-bold text-blue-400">00</span>
-                    <span class="text-sm text-gray-400">Horas</span>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
-                    <span id="minutes" class="block text-2xl font-bold text-blue-400">00</span>
-                    <span class="text-sm text-gray-400">Minutos</span>
-                </div>
-                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
-                    <span id="seconds" class="block text-2xl font-bold text-blue-400">00</span>
-                    <span class="text-sm text-gray-400">Segundos</span>
-                </div>
-            </div>
         </section>
     </main>
 
     <!-- Footer -->
-    <footer class="bg-gray-800 py-6">
+    <footer class="bg-gray-800 py-6 relative z-10">
         <div class="container mx-auto px-4 text-center">
-            <p class="text-gray-400">Unlocked VALLE (2025) - Hecho con 💙 por un grupo de soñadores</p>
+            <p class="text-gray-400">Unlocked VALLE (2025) - Hecho con 💙 por un grupo de estudiantes</p>
             <p class="text-gray-400 mt-2">¡Nos vemos en el próximo proyecto!</p>
         </div>
     </footer>
 
-    <!-- JavaScript for Scroll Animations and Countdown -->
+    <!-- JavaScript for Scroll Animations and Stars -->
     <script>
         // Scroll Animations
         document.addEventListener('DOMContentLoaded', () => {
@@ -166,31 +101,18 @@
                 observer.observe(el);
             });
 
-            // Countdown Timer
-            const endDate = new Date('2025-05-08T08:30:00').getTime(); // May 8, 2025, 08:30:00
-
-            const countdown = () => {
-                const now = new Date().getTime();
-                const distance = endDate - now;
-
-                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-                document.getElementById('days').textContent = days.toString().padStart(2, '0');
-                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
-                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
-                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
-
-                if (distance < 0) {
-                    clearInterval(timerInterval);
-                    document.getElementById('countdown').innerHTML = '<p class="text-lg text-gray-300">¡El tiempo ha terminado!</p>';
-                }
-            };
-
-            countdown(); // Initial call to avoid 1-second delay
-            const timerInterval = setInterval(countdown, 1000);
+            // Generate Stars
+            const starsContainer = document.getElementById('stars');
+            for (let i = 0; i < 100; i++) {
+                const star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = `${Math.random() * 3}px`;
+                star.style.height = star.style.width;
+                star.style.left = `${Math.random() * 100}%`;
+                star.style.top = `${Math.random() * 100}%`;
+                star.style.animationDelay = `${Math.random() * 5}s`;
+                starsContainer.appendChild(star);
+            }
         });
     </script>
 </body>
