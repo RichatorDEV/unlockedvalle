@@ -96,7 +96,7 @@
         <!-- Timeline -->
         <section class="mb-12 fade-in">
             <h2 class="text-3xl font-semibold text-purple-400 mb-4">Nuestra breve historia</h2>
-            <div class="relative border-l-4 border-blueEnums pl-6">
+            <div class="relative border-l-4 border-blue-500 pl-6">
                 <div class="mb-8">
                     <span class="absolute -left-3 w-6 h-6 bg-blue-500 rounded-full"></span>
                     <h3 class="text-xl font-semibold text-gray-100">Enero 2025</h3>
@@ -115,9 +115,27 @@
             </div>
         </section>
 
-        <!-- Final Message -->
+        <!-- Final Message and Countdown -->
         <section class="mb-12 fade-in text-center">
-            <p class="text-2xl font-semibold text-blue-400">Esto no acaba aquí...</p>
+            <p class="text-2xl font-semibold text-blue-400 mb-6 mx-auto">Esto no acaba aquí...</p>
+            <div id="countdown" class="flex justify-center space-x-4">
+                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
+                    <span id="days" class="block text-2xl font-bold text-blue-400">00</span>
+                    <span class="text-sm text-gray-400">Días</span>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
+                    <span id="hours" class="block text-2xl font-bold text-blue-400">00</span>
+                    <span class="text-sm text-gray-400">Horas</span>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
+                    <span id="minutes" class="block text-2xl font-bold text-blue-400">00</span>
+                    <span class="text-sm text-gray-400">Minutos</span>
+                </div>
+                <div class="bg-gray-800 rounded-lg p-4 w-24 text-center">
+                    <span id="seconds" class="block text-2xl font-bold text-blue-400">00</span>
+                    <span class="text-sm text-gray-400">Segundos</span>
+                </div>
+            </div>
         </section>
     </main>
 
@@ -129,8 +147,9 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Scroll Animations -->
+    <!-- JavaScript for Scroll Animations and Countdown -->
     <script>
+        // Scroll Animations
         document.addEventListener('DOMContentLoaded', () => {
             const elements = document.querySelectorAll('.fade-in');
             const observer = new IntersectionObserver((entries) => {
@@ -146,6 +165,32 @@
                 el.classList.add('opacity-0', 'transition-opacity', 'duration-1000');
                 observer.observe(el);
             });
+
+            // Countdown Timer
+            const endDate = new Date('2025-05-08T08:30:00').getTime(); // May 8, 2025, 08:30:00
+
+            const countdown = () => {
+                const now = new Date().getTime();
+                const distance = endDate - now;
+
+                const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+
+                if (distance < 0) {
+                    clearInterval(timerInterval);
+                    document.getElementById('countdown').innerHTML = '<p class="text-lg text-gray-300">¡El tiempo ha terminado!</p>';
+                }
+            };
+
+            countdown(); // Initial call to avoid 1-second delay
+            const timerInterval = setInterval(countdown, 1000);
         });
     </script>
 </body>
